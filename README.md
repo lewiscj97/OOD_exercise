@@ -25,7 +25,7 @@ require './lib/league_organiser.rb'
 ```
 
 * Do you understand it?
-* Are you able to use all the features?
+* Are you able to use all the features? Use the spec file for example of how to use the code.
 * Can you spot ways of improving it?
 * Are there things you learnt from it?
 * Can you spot some good candidates for classes that could be extracted?
