@@ -11,7 +11,7 @@ Right now the user can:
 
 ## Task 1
 
-Read the code and tests, and play with the programme in irb.
+Clone the project on your machine. Read the code and tests, and play with the programme in irb.
 * Do you understand it?
 * Are you able to use all the features?
 * Can you spot ways of improving it?
