@@ -11,7 +11,19 @@ Right now the user can:
 
 ## Task 1
 
-Clone the project on your machine. Read the code and tests, and play with the programme in irb.
+Clone the project on your machine. 
+
+```
+git clone git@github.com:alicelieutier/OOD_exercise.git
+cd OOD_exercise
+```
+
+Read the code and tests, and play with the programme in irb.
+You can load the code in irb using:
+```
+require './lib/league_organiser.rb'
+```
+
 * Do you understand it?
 * Are you able to use all the features?
 * Can you spot ways of improving it?
