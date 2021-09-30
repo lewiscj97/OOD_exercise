@@ -13,6 +13,12 @@ describe Match do
     it 'stops the user creating a match with more than 2 players' do
       expect { Match.new(1, ['Lewis', 'Guy', 'Ana']) }.to raise_error 'Match must have 2 players'
     end
+
+    it "uses different id and names" do
+      match = Match.new(4, ['Ana', 'Dave'])
+      expect(match.id).to eq 4
+      expect(match.players).to eq ['Ana', 'Dave']
+    end
   end
 
   context 'players' do
