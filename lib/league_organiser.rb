@@ -1,15 +1,18 @@
+require 'match'
+
 class LeagueOrganiser
 
   def initialize(players, match = Match)
     raise "A league needs at least two players." if players.length < 2
+    @match_class = match
     @players = players
     @matches = generate_matches(@players)
     @match_winners = {}
   end
 
   def show_matches
-    matches_strings = @matches.map.with_index do | players, index |
-      player_1, player_2 = players
+    matches_strings = @matches.map.with_index do | match, index |
+      player_1, player_2 = match.players
       string = "Match #{index + 1}: #{player_1} vs #{player_2}"
       if @match_winners.include?(index + 1)
         string += ", #{@match_winners[index + 1]} wins"
@@ -21,7 +24,7 @@ class LeagueOrganiser
 
   def record_a_win(match_id, winner)
     raise "Wrong match number: #{match_id}." if match_id > @matches.length
-    raise "Wrong player name: #{winner}." if !@matches[match_id - 1].include? winner
+    @matches[match_id - 1].record_a_win(winner)
     @match_winners[match_id] = winner
   end
 
@@ -33,7 +36,7 @@ class LeagueOrganiser
   private
 
   def generate_matches(players)
-    players.combination(2).to_a
+    players.combination(2).to_a.map{ |match| @match_class.new(match) }
   end
 
   # buggy if more than one player has the same number of points

@@ -18,15 +18,15 @@ describe Match do
   context 'players' do
     before(:each) { @match = Match.new(['Lewis', 'Guy']) }
 
-    describe "#player1" do
+    describe "#players" do
       it 'returns the name of player 1' do
-        expect(@match.player1).to eq 'Lewis'
+        expect(@match.players[0]).to eq 'Lewis'
       end
     end
 
     describe "#player2" do
       it 'returns the name of player 2' do
-        expect(@match.player2).to eq 'Guy'
+        expect(@match.players[1]).to eq 'Guy'
       end
     end
   end
@@ -40,7 +40,7 @@ describe Match do
     end
 
     it 'stops the user recording a winner if the provided player isnt in the match' do
-      expect { @match.record_a_win('Ana') }. to raise_error 'Wrong player name: Ana'
+      expect { @match.record_a_win('Ana') }. to raise_error 'Wrong player name: Ana.'
     end
   end
 end

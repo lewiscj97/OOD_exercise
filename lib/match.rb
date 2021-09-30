@@ -7,15 +7,11 @@ class Match
   end
 
   def record_a_win(winner)
-    raise "Wrong player name: #{winner}" if !@players.include?(winner)
+    raise "Wrong player name: #{winner}." if !@players.include?(winner)
     @winner = winner
   end
-  
-  def player1
-    @players[0]
-  end
 
-  def player2
-    @players[1]
+  def players
+    @players.map(&:clone)
   end
 end
