@@ -33,7 +33,8 @@ class LeagueOrganiser
   private
 
   def generate_matches(players)
-    players.combination(2).to_a.map.with_index{ |match, index| @match_class.new((index+1), match) }
+    matches = players.combination(2).to_a
+    matches.map.with_index{ |match, index| @match_class.new((index+1), match) }
   end
 
   # buggy if more than one player has the same number of points
