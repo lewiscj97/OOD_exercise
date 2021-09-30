@@ -1,6 +1,6 @@
 class LeagueOrganiser
 
-  def initialize(players)
+  def initialize(players, match = Match)
     raise "A league needs at least two players." if players.length < 2
     @players = players
     @matches = generate_matches(@players)
