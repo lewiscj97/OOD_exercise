@@ -1,4 +1,4 @@
-require 'match'
+require_relative 'match'
 
 class LeagueOrganiser
 
