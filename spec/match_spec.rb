@@ -3,20 +3,20 @@ require 'match'
 describe Match do
   describe "#initialize" do
     it 'sets the two players in the match' do
-      match = Match.new(['Lewis', 'Guy'])
+      match = Match.new(1, ['Lewis', 'Guy'])
     end
 
     it 'stops the user creating a match with less than 2 players' do
-      expect { Match.new(['Lewis']) }.to raise_error 'Match must have 2 players'
+      expect { Match.new(1, ['Lewis']) }.to raise_error 'Match must have 2 players'
     end
 
     it 'stops the user creating a match with more than 2 players' do
-      expect { Match.new(['Lewis', 'Guy', 'Ana']) }.to raise_error 'Match must have 2 players'
+      expect { Match.new(1, ['Lewis', 'Guy', 'Ana']) }.to raise_error 'Match must have 2 players'
     end
   end
 
   context 'players' do
-    before(:each) { @match = Match.new(['Lewis', 'Guy']) }
+    before(:each) { @match = Match.new(1, ['Lewis', 'Guy']) }
 
     describe "#players" do
       it 'returns the name of player 1' do
@@ -32,7 +32,7 @@ describe Match do
   end
 
   describe "#record_a_win" do
-    before(:each) { @match = Match.new(['Lewis', 'Guy']) }
+    before(:each) { @match = Match.new(1, ['Lewis', 'Guy']) }
 
     it 'sets the winner to one of the players in the match' do
       @match.record_a_win('Guy')

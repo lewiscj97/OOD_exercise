@@ -1,8 +1,9 @@
 class Match
-  attr_reader :winner
+  attr_reader :winner, :id
   
-  def initialize(players)
+  def initialize(id, players)
     raise 'Match must have 2 players' if players.count != 2
+    @id = id
     @players = players
   end
 

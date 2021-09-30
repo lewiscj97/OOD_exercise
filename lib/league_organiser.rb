@@ -11,7 +11,7 @@ class LeagueOrganiser
   def show_matches
     matches_strings = @matches.map.with_index do | match, index |
       player_1, player_2 = match.players
-      string = "Match #{index + 1}: #{player_1} vs #{player_2}"
+      string = "Match #{match.id}: #{player_1} vs #{player_2}"
       string += ", #{match.winner} wins" if match.winner
       string
     end
@@ -33,7 +33,7 @@ class LeagueOrganiser
   private
 
   def generate_matches(players)
-    players.combination(2).to_a.map{ |match| @match_class.new(match) }
+    players.combination(2).to_a.map.with_index{ |match, index| @match_class.new((index+1), match) }
   end
 
   # buggy if more than one player has the same number of points

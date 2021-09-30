@@ -2,7 +2,7 @@ require 'league_organiser'
 
 describe LeagueOrganiser do
   let(:match_class) { double :match_class, new: match }
-  let(:match) { double :match, players: ['Lewis', 'Ana'] }
+  let(:match) { double :match, players: ['Lewis', 'Ana'], id: 1 }
 
   before(:each) do
     @league = LeagueOrganiser.new(['Lewis', 'Ana'], match_class)
@@ -13,7 +13,7 @@ describe LeagueOrganiser do
   describe "#show_matches" do
     it 'shows matches' do
       allow(match).to receive(:winner)
-      
+
       expect{@league.show_matches}.to output(
         <<-matches
 Match 1: Lewis vs Ana
